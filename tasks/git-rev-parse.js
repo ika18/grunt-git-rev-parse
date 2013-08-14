@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         // Spawn git
         grunt.util.spawn({
             "cmd" : "git",
-            "args" : [ "rev-parse", " --verify --short=" +  options[NUM] + ' ' + options[REV]],
+            "args" : [ "rev-parse", " --verify", "--short=" +  options[NUM], options[REV]],
             "opts" : {
                 "cwd" : options[CWD]
             }
