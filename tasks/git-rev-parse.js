@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     var CWD = "cwd";
     var PROP = "prop";
     var NUM = "number";
-    var REV = "REV";
+    var REV = "rev";
 
     grunt.registerMultiTask("git-rev-parse", "Get git revision id", function (prop, cwd) {
         // Start async task
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
         // Spawn git
         grunt.util.spawn({
             "cmd" : "git",
-            "args" : [ "rev-parse", " --verify", "--short=" +  options[NUM], options[REV]],
+            "args" : [ "rev-parse", "--verify", "--short=" +  options[NUM], options[REV]],
             "opts" : {
                 "cwd" : options[CWD]
             }
