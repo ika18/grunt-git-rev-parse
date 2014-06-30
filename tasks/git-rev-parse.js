@@ -14,7 +14,8 @@ module.exports = function (grunt) {
     var PROP = "prop";
     var NUM = "number";
     var REV = "rev";
-
+    var SILENT = "silent";
+    
     grunt.registerMultiTask("git-rev-parse", "Get git revision id", function (prop, cwd) {
         // Start async task
         var done = this.async();
@@ -24,6 +25,7 @@ module.exports = function (grunt) {
         options[CWD] = ".";
         options[NUM] = 6;
         options[REV] = "HEAD";
+        options[SILENT] = false;
     
         // Load cli options (with defaults)
         options = this.options(options);
@@ -33,6 +35,7 @@ module.exports = function (grunt) {
         options[CWD] = cwd || options[CWD];
         options[NUM] = grunt.option(NUM) || options[NUM];
         options[REV] = grunt.option(REV) || options[REV];
+        options[SILENT] = grunt.option(SILENT) || options[SILENT];
 
         // Log flags (if verbose)
         grunt.log.verbose.writeflags(options);
@@ -57,7 +60,9 @@ module.exports = function (grunt) {
             result = String(result);
 
             // Output
-            grunt.log.ok(result);
+            if (!options[SILENT] || grunt.log.verbose) {
+                grunt.log.ok(result);
+            }
 
             // If we were passed a prop we should update
             if (options[PROP]) {
