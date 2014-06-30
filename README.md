@@ -46,4 +46,11 @@ Default value: `6`
 
 The number of SHA1 value. Under the hood, this is the 'number' of git command `--short=[number]`
 
+#### options.silent
+Type: `Boolean`  
+Default value: `false`
+
+If true the task will not print the result on success. Error-messages will still be printed.
+
+
 Inspired by Mikael Karon [grunt-git-describe](https://github.com/mikaelkaron/grunt-git-describe)
