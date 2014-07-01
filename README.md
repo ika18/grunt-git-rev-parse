@@ -17,7 +17,7 @@ And second, you need to load this task in your grunt file.
 grunt.loadNpmTasks('grunt-git-rev-parse');
 ```
 
-## The "git-describe" task
+## The "git-rev-parse" task
 
 ### Overview
 In your project's Gruntfile, add a section named `git-rev-parse` to the data object passed into `grunt.initConfig()`.
